@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:of="http://omnifaces.org/functions">
+    <h:head>
+        <title>Pregled profila korisnika</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body><div class="header" >
+            <i style="font-size: 20px"> Profil korisnika: <b> #{controlerKonf.profil.username}</b> </i>
+           
+           <hr style=" position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;"></hr><br/>
+   <h:link value = "Nazad" outcome = "korisnik" />
+    #{controlerMod.onLoad()}
+  <h:form>
+    <h:commandButton value="Odjava" action="#{controlerKorisnik.odjava}" style="position: absolute;
+right: 20px;
+top: 15px;"/>
+    <h:commandButton value="Moj profil" action="#{controlerKonf.mojprofil}" style="position: absolute;
+right: 90px;
+top: 15px;"/>
+  </h:form>
+        <hr style=" position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;"></hr> </div>
+        <h:outputStylesheet library="css" name="style.css"  /> 
+        <div style="margin-left: 3%; margin-top: 3%;border:1px;border-color: black">
+         <h:form>
+             <o:graphicImage value="#{controlerKonf.slika}" width="300px" height="300px" lastModified="#{controlerKonf.lastmodified}"   dataURI="true"  ></o:graphicImage>
+        <h:panelGrid columns="2">
+            <b> Ime korisnika: </b> #{controlerKonf.profil.ime} <br/>
+            <b>Prezime korisnika: </b> #{controlerKonf.profil.prezime} <br/>
+            <b>E-mail adresa: </b> #{controlerKonf.profil.email} <br/>
+            <b>Institucija: </b> #{controlerKonf.profil.institucija} <br/>
+            <b>Linkedin nalog: </b> #{controlerKonf.profil.linkedin} <br/>
+            
+            
+        </h:panelGrid>
+        
+        
+        
+        
+             <h:commandButton action="#{controlerKonf.slanjeporuke()}" value="Kontaktiraj korisnika" rendered="#{controlerKonf.renderbuttons}"></h:commandButton>
+                     <h:commandButton action="#{controlerKonf.omiljen(controlerKonf.profil.id)}" value="Dodaj korisnika u omiljene" rendered="#{controlerKonf.renderbuttons}"></h:commandButton>
+        </h:form>
+                 
+                  
+                    
+                    <br/>
+        <h:form>      
+            <h:inputTextarea value="#{controlerKonf.poruka}" rendered="#{controlerKonf.slanjePoruke}"></h:inputTextarea>
+            <h:commandButton value="Posalji poruku" action="#{controlerKonf.Posalji(controlerKonf.profil.id)}" rendered="#{controlerKonf.slanjePoruke}"></h:commandButton>
+             <h:commandButton value="Odustani" action="#{controlerKonf.odustajanjeodslanja()}" rendered="#{controlerKonf.slanjePoruke}"></h:commandButton>#{controlerKonf.porukaOmiljen}
+        </h:form>       
+                
+        </div>        
+    </h:body>
+
+    <div class="footer" > <i> Made by Ilija Stevanović, ETF, Jul 2017 </i>    <hr style=" position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;"></hr> </div>
+</html>

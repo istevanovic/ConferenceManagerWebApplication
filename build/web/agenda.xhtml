@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+        xmlns:o="http://omnifaces.org/ui"
+      xmlns:of="http://omnifaces.org/functions">
+    <h:head>
+        <title>Agenda</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+         <h:outputStylesheet library="css" name="style.css"  /> 
+             <h:form>
+     <div class="header" >
+         <i style="font-size: 20px"> Vaša agenda za konferenciju: <b>#{controlerAgenda.imeKonf}</b> </i>
+           
+           <hr style=" position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;"></hr>
+  
+    <h:commandButton value="Odjava" action="#{controlerKorisnik.odjava}" style="position: absolute;
+right: 20px;
+top: 15px;"/>
+    <h:commandButton value="Moj profil" action="#{controlerKonf.mojprofil}" style="position: absolute;
+right: 90px;
+top: 15px;"/><br/>
+<h:link  value = "Nazad" outcome = "mojekonferencije" />
+        <hr style=" position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;"></hr> </div>
+    <br/>
+    
+    </h:form>
+          
+         
+         #{controlerAgenda.porukaAgenda}
+         
+         <h:dataTable var="item" value="#{controlerAgenda.eventovi}" border="0" style="padding-left:3%" >
+           
+            <h:column >
+             
+                <h:panelGrid columns="5">
+                    <u>  <b>#{item.tip}</b> </u>
+                
+               
+                   <i><b>"#{item.naziv}"</b></i>, #{item.predavaci}
+                   
+                
+                </h:panelGrid>
+                <h:panelGrid columns="7">
+                    
+                        <font>  •  #{item.vremePocetak} - #{item.vremeKraj}, #{item.datumPocetak} <b> #{item.sala} </b> </font>
+               
+           
+              
+              
+              
+                </h:panelGrid>
+                <h:form>
+                    <h:commandButton value="Prezentujem rad" rendered="#{controlerAgenda.predaje.get(item.id)}" action="#{controlerAgenda.uploadFile(item.id)}"/>
+                </h:form> 
+                
+            </h:column> 
+              
+            
+        </h:dataTable>
+         
+         <h:form rendered="#{controlerAgenda.uploadForm}" enctype="multipart/form-data" style="margin-left:3%">
+              Imate pravo da uploadujete 1 fajl za ovaj događaj. (PPT ili PDF)
+              
+              <p:fileUpload value="#{controlerAgenda.file}" mode="simple"   />  
+              <h:commandButton value="UPLOAD" action="#{controlerAgenda.uploadtodb(controlerAgenda.eventid)}"/>
+                               #{controlerAgenda.porukaUpload}
+         </h:form>
+         <h:form>
+          <h:commandButton value="odustani" rendered="#{controlerAgenda.uploadForm}" action="#{controlerAgenda.odustani()}" style="margin-left:3%"/>
+         </h:form>
+         
+         <h:form>
+          Fajlovi za događaje na koje sam prijavljen:
+          <br/>
+          <h:dataTable value="#{controlerAgenda.fileName}" var="item" >
+              <h:column>
+                  <h:commandButton action="#{ControlerAgenda.startDownload()}" value="#{item}" />
+                 
+              </h:column>
+          </h:dataTable>
+             
+         </h:form>
+         
+         
+         
+         
+         
+ <div class="footer" > <i> Made by Ilija Stevanović, ETF, Jul 2017 </i>    <hr style=" position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;"></hr> </div> 
+    </h:body>
+</html>

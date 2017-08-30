@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="beans.Korisnik" catalog="si110350d" table="user">
+        <id name="id" type="java.lang.Integer" column="id">
+            <generator class = "identity"></generator>
+        </id>
+        
+        <property name="username" type="string" column="username"/>
+        <property name="password" type="string" column="password"/>
+        <property name="tip" type="int" column="tip"/>
+        <property name="ime" type="string" column="ime"/>
+        <property name="prezime" type="string" column="prezime"/>
+        <property name="email" type="string" column="mail"/>
+        <property name="institucija" type="string" column="institucija"/>
+        <property name="pol" type="string" column="pol"/>
+        <property name="majica" type="string" column="majica"/>
+        <property name="linkedin" type="string" column="linkedin"/>
+     
+        
+
+            
+    </class>
+</hibernate-mapping>

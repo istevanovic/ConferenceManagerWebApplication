@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Program konferencije</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+         <h:outputStylesheet library="css" name="style.css"  />
+         <div class="header" >
+             <i style="font-size: 20px"> Program konferencije: <b>#{controlerKonf.konferencija}</b> </i>
+           
+           <hr style=" position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;"></hr>
+ <h:form>
+        <h:link  value = "Nazad" outcome = "mojekonferencije" />
+    <h:commandButton value="Odjava" action="#{controlerKorisnik.odjava}" style="position: absolute;
+right: 20px;
+top: 15px;"/>
+    <h:commandButton value="Moj profil" action="#{controlerKonf.mojprofil}" style="position: absolute;
+right: 90px;
+top: 15px;"/>
+  </h:form>
+        <hr style=" position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;"></hr> </div>
+  
+  
+        #{controlerProgram.onLoad()}
+        #{controlerProgram.poruka}
+        
+        <div style="font-size: 15px;margin-left: 3%;width:100%;flex: 1">
+        <h:dataTable var="item" value="#{controlerProgram.eventovi}" border="0" >
+           
+            <h:column>
+                
+                <h:panelGrid columns="5">
+                    <u>  <b>#{item.tip}</b> </u>
+                
+                <h:panelGrid rendered="#{controlerProgram.ocenjiv(item.id)}" columns="2">
+                    ,<i><b>"#{item.naziv}"</b></i>, #{item.predavaci}
+                    <h:form>
+                        <h:graphicImage rendered="#{!controlerProgram.liked(item.id)}" library="Assets" name="liked.png" style="width:20px; height: 20px" /> 
+                        <h:commandButton rendered="#{controlerProgram.liked(item.id)}" action="#{controlerProgram.like(item.id)}" image="resources/Assets/like.png" style="width:30px;height: 20px;" ></h:commandButton>
+                       
+                        
+                    </h:form>
+                </h:panelGrid>
+                </h:panelGrid>
+                <h:panelGrid columns="7">
+                    <h:form>
+                        <font>  •  #{item.vremePocetak} - #{item.vremeKraj}, #{item.datumPocetak} <b> #{item.sala} </b> </font>
+               
+              <h:commandButton value="oceni" action="#{controlerProgram.oceni(item.id)}" rendered="#{controlerProgram.ocenjiv(item.id)}"/>
+              
+              
+              
+                <h:selectOneMenu  value = "#{controlerProgram.ocena}" rendered="#{controlerProgram.ocenjiv(item.id)}" style="margin-left: 1%" > 
+                        <f:selectItem itemValue = "-" itemLabel = "-" /> 
+                        <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                        <f:selectItem itemValue = "2" itemLabel = "2" /> 
+                        <f:selectItem itemValue = "3" itemLabel = "3" /> 
+                        <f:selectItem itemValue = "4" itemLabel = "4" /> 
+                        <f:selectItem itemValue = "5" itemLabel = "5" /> 
+                         </h:selectOneMenu>
+                #{controlerProgram.porukaOcena.get(item.id)}  
+                <h:commandButton value="+ dodaj u agendu" action="#{controlerProgram.agendaDodaj(item.id)}" rendered="#{controlerProgram.renderAttendButton(item.id)}" />   
+                         <h:graphicImage rendered="#{controlerProgram.renderImage(item.id)}" library="Assets" name="attending.png" style="width:20px; height: 20px" /> 
+                        
+                #{controlerProgram.porukaPrijava.get(item.id)}
+              
+                       
+               </h:form>
+                </h:panelGrid>
+             
+                  
+            </h:column> 
+              
+            
+        </h:dataTable>
+       </div>
+        
+      
+    </h:body>
+
+    <div class="footer" > <i> Made by Ilija Stevanović, ETF, Jul 2017 </i><hr style=" position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;"></hr> </div>
+</html>

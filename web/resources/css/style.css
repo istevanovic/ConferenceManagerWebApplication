@@ -1,0 +1,73 @@
+.header {
+ position: relative;
+  right: 0;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+ 
+
+}
+
+#headerreg {
+     position: relative;
+  right: 0;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+}
+
+#loginform {
+   margin-bottom: 0px;
+   bottom:10px;
+   top:100px;
+}
+
+#headeroptions {
+    position: absolute;
+right: 20px;
+top: 0px;
+ 
+}
+
+
+.footer {
+  
+  background-color: #efefef;
+  text-align: center;
+    
+    flex-shrink: 0;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+.tableheader {
+    text-align: left;
+}
+
+#registerform {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 8px;
+    width:60%;
+    border: 1px;
+    border-style:solid;
+  border-color:black;
+}
+
+#promenalozinkeform {
+    margin-top:7%;
+    margin-left:3%;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 8px;
+    width:60%;
+    border: 1px;
+    border-style:solid;
+  border-color:black;
+    
+}

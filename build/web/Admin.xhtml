@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Admin panel</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+    <h:outputStylesheet library="css" name="style.css"  /> 
+      <h:form>
+     <div class="header" >
+         <i style="font-size: 20px"> Admin Panel </i>
+           
+           <hr style=" position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;"></hr>
+  
+  <h:commandButton value="Odjava" action="#{controlerKorisnik.odjava}" style="position: absolute;
+right: 20px;
+top: 15px;"/>
+
+        <hr style=" position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;"></hr> </div>
+    <br/>
+    </h:form>
+        <br/>
+        <div style="margin-left:5%;border:1px">
+        <div style=" text-align: center; background-color: #efefef; width:241px" > <h:graphicImage library="Assets" name="global_internet_grey_icon.png" style="width:20px; height: 20px" />  <b>Dodavanje nove konferencije:</b> </div> <br/>
+        
+        <h:form>
+            <h:panelGrid columns="2">
+         Naziv konferencije:
+        <h:inputText value="#{controlerAdmin.nazivKonf}" style="margin-left:14%"/>
+        </h:panelGrid>
+     
+         <h:panelGrid columns="4">
+        
+         Pocetak konferencije:
+               <h:selectOneMenu value = "#{controlerAdmin.dan1}" style="margin-left:25%" > 
+                        <f:selectItem itemValue = "-" itemLabel = "-" /> 
+                        <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                        <f:selectItem itemValue = "2" itemLabel = "2" /> 
+                        <f:selectItem itemValue = "3" itemLabel = "3" /> 
+                        <f:selectItem itemValue = "4" itemLabel = "4" /> 
+                        <f:selectItem itemValue = "5" itemLabel = "5" /> 
+                        <f:selectItem itemValue = "6" itemLabel = "6" /> 
+                        <f:selectItem itemValue = "7" itemLabel = "7" /> 
+                        <f:selectItem itemValue = "8" itemLabel = "8" /> 
+                        <f:selectItem itemValue = "9" itemLabel = "9" /> 
+                        <f:selectItem itemValue = "10" itemLabel = "10" /> 
+                        <f:selectItem itemValue = "11" itemLabel = "11" /> 
+                        <f:selectItem itemValue = "12" itemLabel = "12" /> 
+                        <f:selectItem itemValue = "13" itemLabel = "13" /> 
+                        <f:selectItem itemValue = "14" itemLabel = "14" /> 
+                        <f:selectItem itemValue = "15" itemLabel = "15" /> 
+                        <f:selectItem itemValue = "21" itemLabel = "21" /> 
+                        <f:selectItem itemValue = "22" itemLabel = "22" /> 
+                        <f:selectItem itemValue = "23" itemLabel = "23" /> 
+                        <f:selectItem itemValue = "24" itemLabel = "24" /> 
+                        <f:selectItem itemValue = "25" itemLabel = "25" /> 
+                        <f:selectItem itemValue = "26" itemLabel = "26" /> 
+                        <f:selectItem itemValue = "27" itemLabel = "27" /> 
+                        <f:selectItem itemValue = "28" itemLabel = "28" /> 
+                        <f:selectItem itemValue = "29" itemLabel = "29" /> 
+                        <f:selectItem itemValue = "30" itemLabel = "30" /> 
+                        <f:selectItem itemValue = "31" itemLabel = "31" /> 
+                        
+                   </h:selectOneMenu> 
+               
+              
+              <h:selectOneMenu value = "#{controlerAdmin.mesec1}" > 
+                        <f:selectItem itemValue = "-" itemLabel = "-" /> 
+                        <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                        <f:selectItem itemValue = "2" itemLabel = "2" /> 
+                        <f:selectItem itemValue = "3" itemLabel = "3" /> 
+                        <f:selectItem itemValue = "4" itemLabel = "4" /> 
+                        <f:selectItem itemValue = "5" itemLabel = "5" /> 
+                        <f:selectItem itemValue = "6" itemLabel = "6" /> 
+                        <f:selectItem itemValue = "7" itemLabel = "7" /> 
+                        <f:selectItem itemValue = "8" itemLabel = "8" /> 
+                        <f:selectItem itemValue = "9" itemLabel = "9" /> 
+                        <f:selectItem itemValue = "10" itemLabel = "10" /> 
+                        <f:selectItem itemValue = "11" itemLabel = "11" /> 
+                        <f:selectItem itemValue = "12" itemLabel = "12" /> 
+                      
+                        
+                </h:selectOneMenu>
+              <h:selectOneMenu value = "#{controlerAdmin.godina1}" > 
+                   <f:selectItem itemValue = "-" itemLabel = "-" /> 
+                         <f:selectItem itemValue = "2016" itemLabel = "2016" /> 
+                            <f:selectItem itemValue = "2017" itemLabel = "2017" /> 
+                               <f:selectItem itemValue = "2018" itemLabel = "2018" /> 
+                               
+                        
+               </h:selectOneMenu> 
+              </h:panelGrid>
+               
+               <h:panelGrid columns="4"  >
+               Kraj konferencije: 
+               <h:selectOneMenu value = "#{controlerAdmin.dan2}" style="margin-left:47%" > 
+                        <f:selectItem itemValue = "-" itemLabel = "-" /> 
+                        <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                        <f:selectItem itemValue = "2" itemLabel = "2" /> 
+                        <f:selectItem itemValue = "3" itemLabel = "3" /> 
+                        <f:selectItem itemValue = "4" itemLabel = "4" /> 
+                        <f:selectItem itemValue = "5" itemLabel = "5" /> 
+                        <f:selectItem itemValue = "6" itemLabel = "6" /> 
+                        <f:selectItem itemValue = "7" itemLabel = "7" /> 
+                        <f:selectItem itemValue = "8" itemLabel = "8" /> 
+                        <f:selectItem itemValue = "9" itemLabel = "9" /> 
+                        <f:selectItem itemValue = "10" itemLabel = "10" /> 
+                        <f:selectItem itemValue = "11" itemLabel = "11" /> 
+                        <f:selectItem itemValue = "12" itemLabel = "12" /> 
+                        <f:selectItem itemValue = "13" itemLabel = "13" /> 
+                        <f:selectItem itemValue = "14" itemLabel = "14" /> 
+                        <f:selectItem itemValue = "15" itemLabel = "15" /> 
+                        <f:selectItem itemValue = "21" itemLabel = "21" /> 
+                        <f:selectItem itemValue = "22" itemLabel = "22" /> 
+                        <f:selectItem itemValue = "23" itemLabel = "23" /> 
+                        <f:selectItem itemValue = "24" itemLabel = "24" /> 
+                        <f:selectItem itemValue = "25" itemLabel = "25" /> 
+                        <f:selectItem itemValue = "26" itemLabel = "26" /> 
+                        <f:selectItem itemValue = "27" itemLabel = "27" /> 
+                        <f:selectItem itemValue = "28" itemLabel = "28" /> 
+                        <f:selectItem itemValue = "29" itemLabel = "29" /> 
+                        <f:selectItem itemValue = "30" itemLabel = "30" /> 
+                        <f:selectItem itemValue = "31" itemLabel = "31" /> 
+                        
+                   </h:selectOneMenu> 
+               
+              
+              <h:selectOneMenu value = "#{controlerAdmin.mesec2}"  > 
+                        <f:selectItem itemValue = "-" itemLabel = "-" /> 
+                        <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                        <f:selectItem itemValue = "2" itemLabel = "2" /> 
+                        <f:selectItem itemValue = "3" itemLabel = "3" /> 
+                        <f:selectItem itemValue = "4" itemLabel = "4" /> 
+                        <f:selectItem itemValue = "5" itemLabel = "5" /> 
+                        <f:selectItem itemValue = "6" itemLabel = "6" /> 
+                        <f:selectItem itemValue = "7" itemLabel = "7" /> 
+                        <f:selectItem itemValue = "8" itemLabel = "8" /> 
+                        <f:selectItem itemValue = "9" itemLabel = "9" /> 
+                        <f:selectItem itemValue = "10" itemLabel = "10" /> 
+                        <f:selectItem itemValue = "11" itemLabel = "11" /> 
+                        <f:selectItem itemValue = "12" itemLabel = "12" /> 
+                      
+                        
+                </h:selectOneMenu>
+              <h:selectOneMenu value = "#{controlerAdmin.godina2}" style="margin-right:25%" > 
+                   <f:selectItem itemValue = "-" itemLabel = "-" /> 
+                         <f:selectItem itemValue = "2016" itemLabel = "2016" /> 
+                            <f:selectItem itemValue = "2017" itemLabel = "2017" /> 
+                               <f:selectItem itemValue = "2018" itemLabel = "2018" /> 
+                               
+                        
+               </h:selectOneMenu> 
+               </h:panelGrid>
+              
+               <h:panelGrid columns="3">
+                    Mesto odrzavanja:
+                <h:selectOneMenu value = "#{controlerAdmin.grad}" style="margin-left:30%" > 
+                     <f:selectItems value="#{controlerAdmin.gradovi}" />
+                </h:selectOneMenu>
+               
+               <h:selectOneMenu value = "#{controlerAdmin.mesto}" > 
+                     <f:selectItems value="#{controlerAdmin.mesta}" />
+                </h:selectOneMenu>
+               </h:panelGrid>
+              
+            <h:panelGrid columns="2">
+         Oblast konferencije:
+                <h:selectOneMenu value = "#{controlerAdmin.oblast}" style="margin-left:21px" >
+                     <f:selectItem itemValue = "0" itemLabel = "-" /> 
+                     <f:selectItem itemValue = "1" itemLabel = "Elektrotehnika i Racunarstvo" /> 
+                      <f:selectItem itemValue = "2" itemLabel = "Inzenjerstvo" /> 
+                        <f:selectItem itemValue = "3" itemLabel = "Arhitektura" /> 
+                          <f:selectItem itemValue = "4" itemLabel = "Gradjevina i Geodezija" /> 
+                            <f:selectItem itemValue = "5" itemLabel = "Masinstvo i industrijsko inzenjerstvo" /> 
+                              <f:selectItem itemValue = "6" itemLabel = "Medicina" /> 
+                                <f:selectItem itemValue = "7" itemLabel = "Fizicko-hemijske nauke" /> 
+                                  <f:selectItem itemValue = "8" itemLabel = "Bioloske nauke" /> 
+                                    <f:selectItem itemValue = "9" itemLabel = "Zastita zivotne sredine" /> 
+                                    
+                      
+                </h:selectOneMenu> 
+            </h:panelGrid>
+          
+                  #{controlerAdmin.porukaUnos} 
+                  <h:panelGrid columns="2">
+         Modovi konferencije:
+       
+          
+          <h:selectManyCheckbox value = "#{controlerAdmin.mods}"> 
+               <f:selectItems value="#{controlerAdmin.korisnici}" /> 
+          </h:selectManyCheckbox>
+                  </h:panelGrid>
+         <h:commandButton value="Unesi konferenciju" action="#{controlerAdmin.unos()}"/>
+             
+        </h:form>
+        <br/><br/>
+        <div style=" text-align: center; background-color: #efefef; width:275px" > <h:graphicImage library="Assets" name="delete.png" style="width:20px; height: 20px" /> <b>Otkazivanje postojeće konferencije:</b> </div> <br/>
+        <h:form>
+            <h:selectOneMenu value = "#{controlerAdmin.konfZaBris}" >
+                <f:selectItems value="#{controlerAdmin.konferencije}" />
+            </h:selectOneMenu>
+            <h:commandButton value="Obrisi konferenciju" action="#{controlerAdmin.obrisi()}" style="margin-left:10px"/>  
+            
+            
+           
+             #{controlerAdmin.porukaBris} 
+             
+            </h:form>
+        </div>
+        <div class="footer" > <i> Made by Ilija Stevanović, ETF, Jul 2017 </i>    <hr style=" position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;"></hr> </div> 
+    </h:body>
+</html>

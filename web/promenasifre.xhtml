@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Promena lozinke</title>
+    </h:head>
+    <h:body>
+         <h:outputStylesheet library="css" name="style.css"  />
+        
+        <div class="header">
+            <i> Promenite lozinku: </i> <hr style=" position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;"></hr><h:link id="headeroptions" style="margin-top:13px"  value = "Nazad" outcome="index" />
+        <hr style=" position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;"></hr>
+        </div>
+         <br />
+         <div rendered="false">#{controler.resetPromSifra()}
+            #{data.reset()} </div>
+       <h:form>
+             <div id="promenalozinkeform" style="width:500px">
+            <h:panelGrid columns="2">
+                Korisnicko ime:
+                <h:inputText  value="#{controler.changer}" />
+                Stara lozinka:
+                <h:inputSecret value="#{controler.oldpass}" />
+                Nova lozinka:
+                <h:inputSecret value="#{controler.newpass}" />
+            
+            </h:panelGrid>
+                   <p:commandButton value="Promeni" action="#{controler.changePW()}" ajax="false" />    
+                <font > #{controler.porukachangepw} </font>
+           
+           
+                
+             </div>
+            
+        </h:form>
+      
+       
+       <div class="footer" > <i> Made by Ilija Stevanović, ETF, Jul 2017 </i><hr style=" position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;"></hr> </div>
+    </h:body>
+</html>
+
+
